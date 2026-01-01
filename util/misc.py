@@ -334,6 +334,13 @@ def nested_tensor_from_tensor_list(tensor_list: List[Tensor]):
             m[: img.shape[1], :img.shape[2]] = False
     else:
         raise ValueError('not supported')
+    # import cv2
+    # import numpy as np
+    # for t, m in zip(tensor, mask):
+    #     m = m.numpy().astype(np.uint8)
+    #     cv2.imshow("Mask", m*255)
+    #     cv2.imshow("Inpainting", t.permute(1, 2, 0).cpu().numpy())
+    #     cv2.waitKey(0)
     return NestedTensor(tensor, mask)
 
 
